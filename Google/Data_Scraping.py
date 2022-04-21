@@ -13,7 +13,7 @@ import pandas as pd
 PATH = 'Google/chromedriver.exe' 
 driver = webdriver.Chrome(PATH)
 
-google_search = 'sustainable design watchmaking' # search keywords
+google_search = 'apple sustainable' # search keywords
 driver.get("https://www.google.com") # enter google website
 
 # select search bar and search keywords

@@ -1,4 +1,3 @@
-import os
 import pandas as pd
 from cleantext import clean
 import re
@@ -101,20 +100,6 @@ for i in data:
 data_clean = combine_text(cleaned_data)
 
 words = len(data_clean.split())
-
-# # create a folder to store images
-# if not os.path.exists(f'Google/{search}/img'):
-#     os.makedirs(f'Google/{search}/img')
-
-# print("Plotting graph...")
-# fig = plt.figure(figsize=(8, 6))
-# plt.bar(search, words, color='r')
-# plt.title('Words analysed')
-# plt.ylabel('Number of words')
-# plt.xlabel('Index')
-# plt.xticks(rotation=70, fontsize=8)
-# plt.savefig(f"Google/{search}/img/data_words.png")
-# plt.show()
 
 # create a wordcloud to show how the words appears in the data
 print("Creating WordClouds...")

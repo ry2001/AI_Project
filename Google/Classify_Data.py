@@ -1,34 +1,33 @@
 import pandas as pd
 from transformers import pipeline
-import pickle
 
 search = pd.read_pickle("Google/search_word.pkl")
 text = pd.read_pickle(f"Google/{search}/clean_text.pkl")
 
-candidates = ["sustainabile", "size", "colours", "others"] 
+candidates = ["sustainabile", "size", "colours", "others"]
 
-classifier = pipeline("zero-shot-classification")
+classifier = pipeline("zero-shot-classification", device = 0) # if have gpu
+# classifier = pipeline("zero-shot-classification")           # if no gpu
 
-class_text = []
-full_results = []
+full_results_text = []
 
-for i in range(len(text)):
-    try:
-        full_results.append(classifier(text[i], candidate_labels=candidates))
-        class_text.append(text[i])
-    except:
-        print(f'Error:{text[i]} at {i} of {len(text)}')
+# put the results into a list
+for i in text:
+    full_results_text.append(classifier(i, candidate_labels = candidates))
 
-results = []
+classified_text = []
+results_text = []
 
-for i in range(len(full_results)):
-    results.append(full_results[i]['labels'][0])
+# we will only use the results if the confidence level is more than 50%
+# filter out many useless or not accurate results
+for i in range(len(full_results_text)):
+    if full_results_text[i]['scores'][0] >= 0.5:
+        results_text.append(full_results_text[i]['labels'][0])
+        classified_text.append(full_results_text[i]['sequence'])
 
-pickle.dump(class_text,open(f"Google/{search}/classified_text.pkl", "wb"))
-pickle.dump(full_results,open(f"Google/{search}/results.pkl", "wb"))
-
+# save the results as a dataframe
 df = pd.DataFrame()
-df['Text'] = class_text
-df['Classification'] = results
+df['Text'] = classified_text
+df['Text Classification'] = results_text
 
 df.to_csv(f"Google/{search}/classified.csv")
