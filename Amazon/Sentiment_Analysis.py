@@ -23,7 +23,7 @@ sentiment_results = []
 
 # do sentiment analysis for all labels except for 'others'
 for i in range(len(df["Text Classification"])):
-    text= df["Text"][i]
+    text = df["Text"][i]
 
     # all labels except 'others'
     if df["Text Classification"][i] in sentiments.keys():
