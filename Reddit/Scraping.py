@@ -16,9 +16,9 @@ search_term = "Apple Watch"                                             # enter 
 num_of_pages = 3                                                       # what page to scrap until
 
 def Reddit_Scraper():                                                   # uses praw library to scrape reddit
-    reddit = praw.Reddit(client_id = "doRtfRrPBu9iH6Uyq1jNGw",                       # users need to enter their own client id
-    client_secret = "EJKZt7iJVEBeShApNm8quwwW87GSUg",                                    # users need to enter their own client secret
-    user_agent = "project_use")                                          # users need to enter their own user agent
+    reddit = praw.Reddit(client_id = "CLIENT_ID",                       # users need to enter their own client id
+    client_secret = "CLIENT_SECRET",                                    # users need to enter their own client secret
+    user_agent = "USER_AGENT")                                          # users need to enter their own user agent
 
     submission_list = []
 
