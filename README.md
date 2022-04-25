@@ -1,3 +1,12 @@
+# 2022 SUTD DAI Term 4 Group 3
+## Group Members
+
+1. Abigail Tan
+2. Bridget Chua
+3. Prabhakar Dhilahesh
+4. Seetoh Jian Qing
+5. Tan Rui Yang
+
 # Project Description
 This project is to identify the design recommendation for the **Apple Watch Series 7** in the sustainablity aspect by using Artificial Intelligence (AI).
 
@@ -17,7 +26,7 @@ For the codes, we run these codes in sequence:
 3. Classify_Data.py
 
 ## Data Scraping
-Before we search for anything, we only need to change the *google_search* variable. After we run the code, Selenium will scrape the webpages.
+Before we search for anything, users only need to change the *google_search* variable. After we run the code, Selenium will start scraping the webpages. The contents will be saved into a csv file for further analysis.
 
 ## Prepare and Analyze Data
 Before we do any analyze, we will need to clean the data that we collected. The code will also create a word cloud to make us easier to look for the top words appeared. The words appeared more frequent means that the word is more related to the search terms that we want and it will be used as the labels for the classification for different platform.

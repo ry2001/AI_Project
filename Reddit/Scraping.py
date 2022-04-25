@@ -13,12 +13,12 @@ posts = []
 PATH = "Reddit/chromedriver.exe"
 search_term = "Apple Watch"                                             # enter the search term
 
-num_of_pages = 10                                                       # what page to scrap until
+num_of_pages = 3                                                       # what page to scrap until
 
 def Reddit_Scraper():                                                   # uses praw library to scrape reddit
-    reddit = praw.Reddit(client_id = "CLIENT_ID",                       # users need to enter their own client id
-    client_secret = "CLIENT_SECRET",                                    # users need to enter their own client secret
-    user_agent = "USER_AGENT")                                          # users need to enter their own user agent
+    reddit = praw.Reddit(client_id = "doRtfRrPBu9iH6Uyq1jNGw",                       # users need to enter their own client id
+    client_secret = "EJKZt7iJVEBeShApNm8quwwW87GSUg",                                    # users need to enter their own client secret
+    user_agent = "project_use")                                          # users need to enter their own user agent
 
     submission_list = []
 
@@ -43,7 +43,7 @@ search.send_keys(f"site:reddit.com {search_term} Reviews")
 search.send_keys(Keys.RETURN)
 
 try:
-    for x in range(2, num_of_pages+1): 
+    for x in range(2, num_of_pages + 1): 
         main = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID, "search")))
         links = main.find_elements(By.CSS_SELECTOR, "div.yuRUbf > a")
         link = [i.get_attribute('href') for i in links]
@@ -54,7 +54,8 @@ try:
         main2.click()
 
     df = pd.DataFrame(posts)
-    df.to_csv(f'{search_term}_all_comments.csv')
+    df.columns = ['comments']
+    df.to_csv(f'Reddit/{search_term}_all_comments.csv')
 
 finally:
     time.sleep(5)

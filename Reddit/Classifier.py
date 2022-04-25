@@ -5,6 +5,7 @@ import pickle
 # import required files
 search_term = pd.read_pickle("Reddit/search_term.pkl")
 data = pd.read_csv(f"Reddit/{search_term}_all_comments.csv")
+data.columns = ['index','comments']
 
 candidates = ["battery", "watch face", "strap", "others"] 
 
@@ -13,8 +14,12 @@ classifier = pipeline("zero-shot-classification", device = 0) #if have gpu
 
 full_results_text = []
 
+counter = 0
+
 # put the results into a list
-for i in data:
+for i in data.comments:
+    print(f'{counter + 1} out of {len(data)}')
+    counter += 1
     full_results_text.append(classifier(i , candidate_labels = candidates))
 
 classified_text = []

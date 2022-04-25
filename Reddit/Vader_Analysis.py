@@ -1,5 +1,5 @@
-import nltk
-nltk.download('vader_lexicon')
+# import nltk
+# nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 from nltk.corpus import stopwords
