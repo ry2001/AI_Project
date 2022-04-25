@@ -77,7 +77,7 @@ We need to have the data scraped by the extension mentioned above which is a csv
 > Note that the *file_name* variable is important when we are running our code. Make sure it is the file name of your scraped data (everything before .csv).
 
 ## Analyze Data
-We uses wordcloud and also n-grams (at most n continuous sequence of words) to analyze the cleaned data. We will take the top 150 appeared words to find out what it the most mentioned things for the product. To get more useful top words, we will pay more attention on words that appeared as a **phrase?** such as "battery life", "heart rate" and etc.
+We uses wordcloud and also n-grams (at most n continuous sequence of words) to analyze the cleaned data. We will take the top 150 appeared words to find out what it the most mentioned things for the product. To get more useful top words, we will pay more attention on words that appeared as a phrase. such as "battery life", "heart rate" and etc.
 
 > For the other codes, all of them works the same as Reddit's part. Therefore, we are not going to talk about it here again. 
 
